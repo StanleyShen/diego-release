@@ -189,6 +189,7 @@ mkdir -p keypair
 mkdir -p ops-files/bosh
 mkdir -p stubs/bosh
 mkdir -p stubs/infrastructure
+mkdir -p stubs/routing
 ```
 
 #### `bootstrap_environment`
@@ -1009,7 +1010,7 @@ sql_overrides:
     db_port: <port>
     db_username: diego
     db_password: <REPLACE_ME_WITH_DIEGO_DB_PASSWORD>
-    db_schema: diego
+    db_schema: <locket-db-schema>
     max_open_connections: 500
     require_ssl: null
     ca_cert: null
@@ -1017,7 +1018,7 @@ sql_overrides:
     db_driver: <driver>
     db_host: <sql-instance-endpoint>
     db_port: <port>
-    db_username: <locket-db-username>
+    db_username: locket
     db_password: <REPLACE_ME_WITH_LOCKET_DB_PASSWORD>
     db_schema: <locket-db-schema>
     require_ssl: null
@@ -1123,7 +1124,7 @@ If you enabled volume services, follow these directions to [fill in the drivers 
 
 ### Generate the Diego manifest
 
-See the full [manifest generation documentation](https://github.com/cloudfoundry/diego-release/docs/manifest-generation.md) for more generation instructions.
+See the full [manifest generation documentation](https://github.com/cloudfoundry/diego-release/blob/develop/docs/manifest-generation.md) for more generation instructions.
 Remember that the `-n` instance-count-overrides flag and the `-v` release-versions flags are optional. If using a non-standard deployment (SQL, Volume Drivers, etc) follow the [generate the Diego manifest optional instructions](OPTIONAL.md#generate-the-diego-manifest).
 
 ```bash
